@@ -1,0 +1,70 @@
+[build]
+  publish = "."
+  command = ""
+
+# SPA redirect for root (landingcraft hub)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Tool subdirectory redirects - each tool's index.html is its entry point
+[[redirects]]
+  from = "/covercraft"
+  to = "/covercraft/index.html"
+  status = 301
+
+[[redirects]]
+  from = "/blogcraft"
+  to = "/blogcraft/index.html"
+  status = 301
+
+[[redirects]]
+  from = "/resumecraft"
+  to = "/resumecraft/index.html"
+  status = 301
+
+[[redirects]]
+  from = "/serpcraft"
+  to = "/serpcraft/index.html"
+  status = 301
+
+[[redirects]]
+  from = "/postcraft"
+  to = "/postcraft/index.html"
+  status = 301
+
+[[redirects]]
+  from = "/prompcraft"
+  to = "/prompcraft/index.html"
+  status = 301
+
+[[redirects]]
+  from = "/namecraft"
+  to = "/namecraft/index.html"
+  status = 301
+
+[[redirects]]
+  from = "/emailcraft"
+  to = "/emailcraft/index.html"
+  status = 301
+
+[[redirects]]
+  from = "/resumescanner"
+  to = "/resumescanner/index.html"
+  status = 301
+
+[[redirects]]
+  from = "/coverenhance"
+  to = "/coverenhance/index.html"
+  status = 301
+
+[[redirects]]
+  from = "/seo-landing"
+  to = "/seo-landing/index.html"
+  status = 301
+
+[[redirects]]
+  from = "/stripe-checkout"
+  to = "/stripe-checkout/index.html"
+  status = 301
