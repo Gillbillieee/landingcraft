@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LandingCraft — Free Landing Page Builder | No Coding Required</title>
+  <meta name="description" content="Build beautiful landing pages in minutes with our free drag-and-drop builder. No coding required. Export clean HTML.">
+  <link rel="stylesheet" href="/src/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=pub-8410225250422623" crossorigin="anonymous"></script>
+<!-- Replace pub-8410225250422623 with your AdSense ID -->
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="logo"><span class="logo-icon">🚀</span> LandingCraft</a>
+      <div class="nav-links">
+        <a href="#builder" class="nav-link">Builder</a>
+        <a href="#templates" class="nav-link">Templates</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="#builder" class="btn btn-sm btn-outline">Build Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container hero-content">
+      <h1>Build Landing Pages That <span class="gradient-text">Convert Visitors</span></h1>
+      <p class="hero-subtitle">No coding required. Choose a template, customize it, and export clean HTML ready to deploy.</p>
+    </div>
+  </section>
+
+  <section id="builder" class="builder-section">
+    <div class="container">
+      <div class="builder-layout">
+        <!-- Controls Panel -->
+        <div class="controls-panel">
+          <div class="panel-header">
+            <h2>⚙️ Customize</h2>
+          </div>
+
+          <div class="control-group">
+            <label>Template</label>
+            <select id="templateSelect" onchange="changeTemplate(this.value)">
+              <option value="saas">SaaS Product</option>
+              <option value="startup">Startup Launch</option>
+              <option value="portfolio">Portfolio / Personal</option>
+              <option value="newsletter">Newsletter / Email List</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label for="siteName">Site Name</label>
+            <input type="text" id="siteName" placeholder="MyProduct" oninput="updatePreview()">
+          </div>
+
+          <div class="control-group">
+            <label for="heroHeadline">Hero Headline</label>
+            <input type="text" id="heroHeadline" placeholder="The fastest way to build apps" oninput="updatePreview()">
+          </div>
+
+          <div class="control-group">
+            <label for="heroSubhead">Sub-headline</label>
+            <textarea id="heroSubhead" rows="2" placeholder="Build beautiful landing pages in minutes. No coding required." oninput="updatePreview()"></textarea>
+          </div>
+
+          <div class="control-group">
+            <label for="ctaText">CTA Button Text</label>
+            <input type="text" id="ctaText" placeholder="Get Started Free" value="Get Started Free" oninput="updatePreview()">
+          </div>
+
+          <div class="control-group">
+            <label for="ctaUrl">CTA Link</label>
+            <input type="text" id="ctaUrl" placeholder="https://example.com/signup" value="#" oninput="updatePreview()">
+          </div>
+
+          <div class="control-group">
+            <label for="featuresText">Features (one per line)</label>
+            <textarea id="featuresText" rows="4" placeholder="⚡ Lightning fast setup&#10;🎨 Beautiful templates&#10;📱 Mobile responsive" oninput="updatePreview()"></textarea>
+          </div>
+
+          <div class="control-group">
+            <label for="aboutText">About / Description</label>
+            <textarea id="aboutText" rows="3" placeholder="We help teams ship faster..." oninput="updatePreview()"></textarea>
+          </div>
+
+          <div class="control-group">
+            <label for="footerText">Footer Text</label>
+            <input type="text" id="footerText" placeholder="© 2026 MyProduct. All rights reserved." oninput="updatePreview()">
+          </div>
+
+          <div class="control-group">
+            <label for="primaryColor">Primary Color</label>
+            <input type="color" id="primaryColor" value="#4f46e5" onchange="updatePreview()" style="height:40px;cursor:pointer;">
+          </div>
+
+          <button class="btn btn-primary btn-lg" onclick="exportHTML()">📥 Export HTML</button>
+        </div>
+
+        <!-- Preview Panel -->
+        <div class="preview-panel">
+          <div class="preview-toolbar">
+            <h3>Live Preview</h3>
+            <div class="toolbar-actions">
+              <button class="btn btn-sm btn-primary" onclick="exportHTML()">📥 Export HTML</button>
+            </div>
+          </div>
+          <iframe id="previewFrame" class="preview-frame" sandbox="allow-same-origin"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Templates Section -->
+  <section id="templates" class="templates-section">
+    <div class="container">
+      <h2>Choose Your Starting Template</h2>
+      <div class="templates-grid">
+        <div class="template-card active" onclick="selectTemplate('saas')">
+          <div class="template-preview saas-preview"></div>
+          <h3>SaaS Product</h3>
+          <p>Clean hero, features grid, CTA sections</p>
+        </div>
+        <div class="template-card" onclick="selectTemplate('startup')">
+          <div class="template-preview startup-preview"></div>
+          <h3>Startup Launch</h3>
+          <p>Bold hero, social proof, waitlist signup</p>
+        </div>
+        <div class="template-card" onclick="selectTemplate('portfolio')">
+          <div class="template-preview portfolio-preview"></div>
+          <h3>Portfolio / Personal</h3>
+          <p>Minimal, elegant, project showcase</p>
+        </div>
+        <div class="template-card" onclick="selectTemplate('newsletter')">
+          <div class="template-preview newsletter-preview"></div>
+          <h3>Newsletter / Email List</h3>
+          <p>Email capture focused, benefit-driven</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="pricing-section">
+    <div class="container">
+      <h2>Simple Pricing</h2>
+      <p class="pricing-subtitle">Start free. Upgrade when you're ready.</p>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-badge free">Free</div>
+          <h3>Starter</h3>
+          <div class="price">$0<span>/forever</span></div>
+          <ul class="feature-list">
+            <li>✅ 4 landing page templates</li>
+            <li>✅ Unlimited exports</li>
+            <li>✅ Clean HTML export</li>
+            <li>✅ Mobile responsive</li>
+            <li>❌ Custom domains</li>
+            <li>❌ Analytics integration</li>
+          </ul>
+          <button class="btn btn-outline btn-lg" onclick="document.getElementById('siteName').focus()">Build Free</button>
+        </div>
+        <div class="pricing-card featured">
+          <div class="pricing-badge pro">PRO</div>
+          <h3>Pro</h3>
+          <div class="price">$9<span>/month</span></div>
+          <ul class="feature-list">
+            <li>✅ Everything in Free</li>
+            <li>✅ 20+ premium templates</li>
+            <li>✅ A/B testing</li>
+            <li>✅ Analytics dashboard</li>
+            <li>✅ Custom domains</li>
+            <li>✅ Priority support</li>
+          </ul>
+          <button class="btn btn-primary btn-lg">Upgrade to Pro</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="padding:40px;text-align:center;background:#f8f8ff;margin:40px 0;border-radius:12px;">
+<h3 style="margin-bottom:16px;">Get weekly growth tips</h3>
+<input type="email" placeholder="your@email.com" style="padding:10px;width:250px;margin-right:8px;border:1px solid #ddd;border-radius:4px;">
+<button style="padding:10px 20px;background:#4f46e5;color:white;border:none;border-radius:4px;cursor:pointer;">Subscribe</button>
+<p style="font-size:12px;color:#666;margin-top:8px;">Join 5,000+ professionals. No spam.</p>
+</div>
+<footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand"><span class="logo-icon">🚀</span> LandingCraft</div>
+      <p>Built for founders who want to ship fast.</p>
+      <nav class="footer-nav">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+    <p class="footer-note"&copy; 2026 LandingCraft. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/src/js/app.js"></script>
+</body>
+</html>
