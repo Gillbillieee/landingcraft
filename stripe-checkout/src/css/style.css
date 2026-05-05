@@ -1,0 +1,111 @@
+/* ===== Stripe Checkout — Modern 2026 Design ===== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #f0f0f5;
+  --surface: rgba(255, 255, 255, 0.8);
+  --surface-solid: #ffffff;
+  --border: rgba(0, 0, 0, 0.06);
+  --text: #0f172a;
+  --text-secondary: #475569;
+  --text-dim: #94a3b8;
+
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --accent: #8b5cf6;
+
+  --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a78bfa 100%);
+  --gradient-bg: radial-gradient(ellipse at 30% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                  radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
+                  linear-gradient(135deg, #eef2ff 0%, #f0f0f5 50%, #faf5ff 100%);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 20px 60px -15px rgba(99, 102, 241, 0.15), 0 8px 20px -8px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 30px 70px -15px rgba(99, 102, 241, 0.2), 0 12px 30px -10px rgba(0, 0, 0, 0.1);
+
+  --radius: 20px;
+  --radius-sm: 12px;
+  --radius-pill: 9999px;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--gradient-bg);
+  min-height: 100vh; display: flex; justify-content: center; align-items: center;
+  padding: 24px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container { max-width: 500px; width: 100%; }
+
+.checkout-card {
+  background: var(--surface-solid);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 48px 40px;
+  box-shadow: var(--shadow-xl);
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.checkout-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--gradient-primary);
+}
+
+/* Logo area */
+.checkout-logo {
+  width: 56px; height: 56px; border-radius: 14px;
+  background: var(--gradient-primary);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px; font-size: 24px; color: #fff;
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
+}
+
+h1 {
+  font-size: 26px; font-weight: 800; color: var(--text);
+  margin-bottom: 6px; letter-spacing: -0.02em;
+}
+.subtitle { color: var(--text-secondary); font-size: 15px; margin-bottom: 28px; }
+
+.price {
+  font-size: 56px; font-weight: 900; color: var(--primary);
+  margin: 24px 0; letter-spacing: -0.03em; line-height: 1;
+}
+.price span { font-size: 18px; color: var(--text-dim); font-weight: 500; }
+
+.features { text-align: left; margin: 32px 0; list-style: none; }
+.features li {
+  padding: 12px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  color: var(--text-secondary); font-size: 14px;
+  display: flex; align-items: center; gap: 12px;
+}
+.features li::before { content: '✓'; color: var(--primary); font-weight: 700; font-size: 14px; flex-shrink: 0; }
+
+.btn-primary {
+  background: var(--gradient-primary); color: #fff; border: none;
+  padding: 16px 36px; border-radius: var(--radius-pill);
+  font-size: 17px; font-weight: 700; cursor: pointer; width: 100%;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.35), inset 0 1px 0 rgba(255,255,255,0.2);
+  letter-spacing: -0.01em;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+}
+.btn-primary:active { transform: translateY(0); }
+
+.secure {
+  font-size: 13px; color: var(--text-dim); margin-top: 20px;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 540px) {
+  .checkout-card { padding: 36px 24px; }
+  .price { font-size: 48px; }
+  h1 { font-size: 22px; }
+}

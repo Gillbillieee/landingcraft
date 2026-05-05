@@ -1,0 +1,8 @@
+# robots.txt for Gillbillieee Tools
+User-agent: *
+Allow: /
+Allow: /blog/
+Sitemap: https://tools.gillbillieee.com/sitemap.xml
+
+# Crawl delay to be respectful of server resources
+Crawl-delay: 1

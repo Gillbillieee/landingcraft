@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EmailCraft — AI Email Template Generator</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #fafbfe;
+      --surface: rgba(255,255,255,0.78);
+      --surface-solid: #ffffff;
+      --border: rgba(0,0,0,0.06);
+      --text: #0f172a;
+      --text-secondary: #475569;
+      --primary: #0d9488;
+      --gradient-primary: linear-gradient(135deg, #0d9488 0%, #14b8a6 50%, #5eead4 100%);
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(ellipse at 30% 20%, rgba(13,148,136,0.06) 0%, transparent 50%),
+                  radial-gradient(ellipse at 70% 80%, rgba(99,102,241,0.04) 0%, transparent 50%),
+                  linear-gradient(180deg, #fafbfe 0%, #f0fdfa 100%);
+      color: var(--text); line-height: 1.6;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 64px 24px 48px; }
+    h1 {
+      text-align: center; font-size: clamp(30px, 5vw, 40px);
+      font-weight: 900; letter-spacing: -0.03em; margin-bottom: 8px;
+      background: var(--gradient-primary); -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .subtitle {
+      text-align: center; color: var(--text-secondary);
+      margin-bottom: 40px; font-size: 17px;
+    }
+    .card {
+      background: var(--surface-solid); border: 1px solid var(--border);
+      border-radius: 20px; padding: 36px; box-shadow:
+        0 20px 50px -12px rgba(0,0,0,0.06), 0 8px 20px -8px rgba(0,0,0,0.04);
+      margin-bottom: 24px; position: relative; overflow: hidden;
+    }
+    .card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--gradient-primary);
+    }
+    label { display: block; font-weight: 650; margin-bottom: 8px; color: var(--text-secondary); font-size: 14px; letter-spacing: -0.01em; }
+    input, textarea, select {
+      width: 100%; padding: 13px 16px; border: 1.5px solid var(--border);
+      border-radius: 12px; font-size: 15px; margin-bottom: 16px;
+      background: var(--surface-solid); color: var(--text);
+      transition: all 0.2s ease; outline: none; resize: vertical;
+    }
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(13,148,136,0.12);
+    }
+    .btn {
+      background: var(--gradient-primary); color: white; border: none;
+      padding: 16px 32px; border-radius: 9999px; font-size: 16px;
+      font-weight: 700; cursor: pointer; width: 100%; transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
+      box-shadow: 0 4px 16px rgba(13,148,136,0.3), inset 0 1px 0 rgba(255,255,255,0.2);
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(13,148,136,0.4), inset 0 1px 0 rgba(255,255,255,0.2); }
+    .btn:active { transform: translateY(0); }
+    .preview {
+      background: linear-gradient(135deg, #f8fafc, #f0fdfa);
+      border: 1px solid var(--border); padding: 24px; border-radius: 14px;
+      margin-top: 24px; white-space: pre-wrap; line-height: 1.7;
+      font-size: 14px; color: var(--text-secondary);
+    }
+  </style>
+<meta name="google-adsense-account" content="ca-pub-8410225250422623">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8410225250422623" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>📧 EmailCraft</h1>
+    <p class="subtitle">Generate professional email templates in seconds</p>
+    
+    <div class="card">
+      <label>What's this email about?</label>
+      <input type="text" id="purpose" placeholder="e.g. Follow-up after job interview">
+      
+      <label>Tone</label>
+      <select id="tone">
+        <option value="professional">Professional</option>
+        <option value="friendly">Friendly</option>
+        <option value="formal">Formal</option>
+        <option value="casual">Casual</option>
+      </select>
+      
+      <label>Key Points (optional)</label>
+      <textarea id="points" rows="3" placeholder="e.g. Thank them for their time, mention specific project discussed"></textarea>
+      
+      <button class="btn" onclick="generateEmail()">Generate Email</button>
+    </div>
+    
+    <div class="card" id="result" style="display:none;">
+      <h3>Your Email Template</h3>
+      <div class="preview" id="emailOutput"></div>
+    </div>
+  </div>
+
+  <script src="/src/js/app.js"></script>
+</body>
+</html>
